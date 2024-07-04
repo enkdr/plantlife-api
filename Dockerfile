@@ -43,7 +43,7 @@ COPY --from=builder /src/main /app/main
 COPY --from=builder /src/plantlife.db /app/plantlife.db
 
 # Expose port if needed
-EXPOSE 3000
+EXPOSE 8080
 
 # Command to run the executable
 CMD ["./main"]

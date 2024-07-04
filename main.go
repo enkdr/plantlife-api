@@ -13,7 +13,7 @@ import (
 var db *sql.DB
 
 type Plant struct {
-	Name string `json:"name"`
+	Name        string `json:"name"`
 	Description string `json:"description"`
 }
 
@@ -36,7 +36,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	var plants []Plant
 	for rows.Next() {
 		var plant Plant
-		if err := rows.Scan(&plant.Name,&plant.Description); err != nil {
+		if err := rows.Scan(&plant.Name, &plant.Description); err != nil {
 			log.Println(err)
 			continue
 		}
@@ -57,8 +57,8 @@ func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", handler)
 
-	fmt.Println("Serving on localhost:3000")
-	err := http.ListenAndServe(":3000", mux)
+	fmt.Println("Serving on localhost:8080")
+	err := http.ListenAndServe(":8080", mux)
 	if err != nil {
 		log.Fatal(err)
 	}
