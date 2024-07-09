@@ -40,7 +40,7 @@ WORKDIR /app
 COPY --from=builder /src/main /app/main
 
 # Copy the SQLite database file from the builder stage
-COPY --from=builder /src/plantlife.db /app/plantlife.db
+COPY --from=builder /src/plants.db /app/plants.db
 
 # Expose port if needed
 EXPOSE 8080
